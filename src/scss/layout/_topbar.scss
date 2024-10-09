@@ -2,7 +2,7 @@
     .v-app-bar {
         .v-toolbar__content {
             padding: 0 20px;
-            max-width: 1300px;
+            // max-width: 1300px;
             margin: 0 auto;
             background-color: rgba(var(--v-theme-containerBg));
             border-radius: 18px;
@@ -11,19 +11,24 @@
             >.v-btn:first-child {
                 margin-inline-start: 0;
             }
-
         }
 
         &.v-toolbar {
-            top: 20px !important;
+            // 新调整的样式，可以随着drawer的宽度变化而变化
+            left: calc(var(--drawer-width) + 40px) !important;
+            width: calc(100% - var(--drawer-width) - 56px) !important;
+            transition: left 0.3s, width 0.3s, top 0.3s;
+            // top: 20px !important;
             background-color: rgba(var(--v-theme-background));
             z-index: 2;
-            max-width: 1300px;
+            // max-width: 1300px;
             margin: 0 auto;
-            left: 290px !important;
-            right: 0;
+            right: 16px !important;
             border-radius: 15px;
             box-shadow: 0 2px 6px rgba(37, 83, 185, 0.1) !important;
+            &:not(.sticky-top) {
+                top: 20px !important;
+            }
         }
 
         &.sticky {
@@ -31,13 +36,21 @@
         }
     }
 
-    &.mini-sidebar {
-        .v-app-bar {
-            &.v-toolbar {
-                left: 85px !important;
-            }
-        }
+    // &.mini-sidebar {
+    //     .v-app-bar {
+    //         &.v-toolbar {
+    //             left: 85px !important;
+    //         }
+    //     }
+    // }
 
+    @media screen and (max-width: 1279px) {
+        .verticalLayout {
+          .v-app-bar.v-toolbar {
+            left: 0 !important;
+            width: calc(100% - 40px) !important;
+          }
+        }
     }
 }
 

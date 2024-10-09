@@ -20,12 +20,13 @@ html {
 }
 @media screen and (min-width:1300px) {
     .maxWidth {
-        max-width: 1300px;
+        // 注释该行，则内容面板的宽度就会随着drawer的打开而变窄，随着drawer的关闭而变宽
+        // max-width: 1300px;
         margin: 0 auto;
     }
 }
 .fixed-width {
-    max-width: 1300px;
+    max-width: 900px;
 }
 
 @media screen and (max-width:1024px) {
